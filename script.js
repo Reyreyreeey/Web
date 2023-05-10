@@ -4,15 +4,18 @@ const insert = () => {
     let label = document.querySelector('#label').value 
 
     switch(type){
-        case 'text': appendText(label)
+        case 'text': 
+            appendText(label)
             break
-        case 'button': appendButton(label)
+        case 'button': 
+            appendButton(label)
             break
-        case 'textfield': appendTextField(label)
+        case 'textfield': 
+            appendTextField(label)
             break
-        case 'radio': appendRadio(label)
+        case 'radio': 
+            appendRadio(label)
             break
-
     }
 
 }
@@ -74,36 +77,37 @@ const appendTextField = (label = "Default") => {
     document.querySelector('#display').append(elem)
 
 }
-const appendRadio = (label = "No label", placeholder = "No placeholder") => {
-    let container = document.createElement("div");
-    container.setAttribute("class", "form-check d-flex align-items-center");
-  
-    //container.setAttribute("draggable", "true");
-  
-  // Add drag event listeners
- // container.addEventListener("dragstart", handleDragStart);
-  //container.addEventListener("dragend", handleDragEnd);
 
-    let elem = document.createElement("input");
-    elem.setAttribute("type", "radio");
-    elem.setAttribute("name", "radio-group");
-  
-    let labelEl = document.createElement("label");
-    labelEl.innerHTML = label;
-  
-    let deleteButton = document.createElement("button");
-    deleteButton.innerHTML = "Delete";
-    deleteButton.setAttribute("class", "btn btn-primary ms-2");
-    deleteButton.onclick = () => {
-      container.remove();
-    };
-  
-    container.appendChild(elem);
-    container.appendChild(labelEl);
-    container.appendChild(deleteButton);
-  
-    document.querySelector("#elements").appendChild(container);
-  };
+const appendRadio = (label = "Default") => {
+    
+    let elem = document.createElement('div')
+    elem.setAttribute('class', 'd-flex flex-row align-items-center')
+
+    let radioDiv = document.createElement('div')
+    radioDiv.setAttribute('class', 'form-check mt-2')
+    elem.append(radioDiv)
+
+    let radio = document.createElement('input')
+    radio.setAttribute('class', 'form-check-input')
+    radio.setAttribute('type', 'radio')
+    radio.setAttribute('name', 'radioGroup')
+    radio.setAttribute('id', label)
+    radio.setAttribute('value', label)
+    radioDiv.append(radio)
+
+    let radioLabel = document.createElement('label')
+    radioLabel.setAttribute('class', 'form-check-label')
+    radioLabel.setAttribute('for', label)
+    radioLabel.textContent = label
+    radioDiv.append(radioLabel)
+
+    let deleteButton = createDeleteButton(elem)
+    elem.append(deleteButton)
+
+    document.querySelector('#display').append(elem)
+
+}
+
 const createDeleteButton = (elem) => {
     let deleteButton = document.createElement('button')
     deleteButton.setAttribute('class', 'btn btn-danger ms-2 mt-2 rounded-circle')

@@ -1,38 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Maker</title>
-</head>
-<body>
-    <main class="container text-center">
-        <h1 class="text-primary">Form Maker</h1>
-        <div class="card p-3">
-            <select id="type" class="form-select mt-2">
-                <option selected disabled>Select an Element</option>
-                <option value="text">Text</option>
-                <option value="button">Button</option>
-                <option value="textfield">Textfield</option>
-                <option value="radio">Radio</option>
-            </select>
-            <input type="text" id="label" placeholder="Label" class="mt-2 form-control">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body style="background-color: #f9f9f9;">
+    <main class="container my-5" style="border: 1px solid #ccc; padding: 20px;">
+      <h1 class="text-center mb-5" style="color: #333;">Form Maker</h1>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="type" class="form-label">Select an Element:</label>
+          <select
+            id="type"
+            class="form-select"
+            style="
+              border-radius: 0;
+              border-color: #333;
+              color: #333;
+              background-color: #fff;
+            "
+          >
+            <option selected disabled>Select an Element </option>
+            <option value="text">Text</option>
+            <option value="button">Button</option>
+            <option value="textfield">Textfield</option>
+            <option value="radio">Radio</option>
+          </select>
         </div>
-        <div class="d-flex flex-row justify-content-end">
-            <button class="btn btn-primary mt-2" onclick="insert()">Add Element</button>
+        <div class="col-md-4">
+          <label for="label" class="form-label">Label:</label>
+          <input
+            type="text"
+            id="label"
+            class="form-control"
+            style="
+              border-radius: 0;
+              border-color: #333;
+              color: #333;
+              background-color: #fff;
+            "
+          />
         </div>
-        <hr class="mt-2 mb-2">
-        <div class="card p-3 mt-2 text-center">
-            <h3 class="text-secondary">Form Preview</h3>
-            <hr class="mt-1 mt-2">
-            <div id="display"></div>
+        <div class="col-md-4 d-flex align-items-end justify-content-end">
+          <button
+            class="btn btn-primary"
+            onclick="insert()"
+            style="
+              border-radius: 0;
+              border-color: #007bff;
+              color: #fff;
+              background-color: #007bff;
+            "
+          >
+            Add Element
+          </button>
         </div>
-        <div class="d-flex flex-row justify-content-end">
-            <button class="btn btn-danger mt-2" onclick="clearForm()">Clear Form</button>
+      </div>
+      <hr />
+      <div class="card my-3">
+        <div class="card-body">
+          <h3 class="card-title text-secondary">Form Preview</h3>
+          <hr />
+          <div
+            id="display"
+            style="color: #333; background-color: #fff; padding: 10px;"
+          ></div>
         </div>
+        <div class="card-footer d-flex align-items-end justify-content-end">
+          <button
+            class="btn btn-danger"
+            onclick="clearForm()"
+            style="
+              border-radius: 0;
+              border-color: #dc3545;
+              color: #fff;
+              background-color: #dc3545;
+            "
+          >
+            Clear Form
+          </button>
+        </div>
+      </div>
+      
     </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
